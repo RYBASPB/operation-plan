@@ -187,7 +187,8 @@ const repo = new Supabase()
       />
       <Column
         :hidden="forScreenshot"
-        style="width: 15rem;">
+        style="width: 15rem;"
+      >
         <template #body="rowData">
           <div class="table__button-container">
             <Button
