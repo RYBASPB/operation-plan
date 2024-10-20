@@ -16,13 +16,16 @@ import EditPatient from './Patients/EditPatient.vue'
 const operations: Ref<Patient[]> = ref([])
 const selectedPatient = ref()
 const showPatientDialog = ref(false)
+const patientAction = ref('')
 
 const openPatientEditor = (patient: Patient) => {
+  patientAction.value = 'Изменить'
   selectedPatient.value = patient
   showPatientDialog.value = !showPatientDialog.value
 }
 
 const openPatientCreator = () => {
+  patientAction.value = 'Добавить'
   selectedPatient.value = {}
   showPatientDialog.value = !showPatientDialog.value
 }
@@ -63,6 +66,7 @@ watch(
 function afterEdit() {
   showPatientDialog.value = false
   selectedPatient.value = {}
+  patientAction.value = ''
   fetchPatientsByDate()
 }
 
@@ -211,6 +215,7 @@ const repo = new Supabase()
   <EditPatient
     :props-data="selectedPatient"
     :show-patient-dialog="showPatientDialog"
+    :title="patientAction"
     @after-edit="afterEdit"
     @on-close="showPatientDialog = false"
   />

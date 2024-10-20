@@ -53,7 +53,6 @@ export class Supabase implements PatientRepository {
     if (patient.operation_date) {
       newPatient.operation_date = this.transformDate(patient.operation_date)
     }
-    console.log(newPatient)
     const { data, error } = await this.supabase
       .from('patients')
       .update([newPatient])
