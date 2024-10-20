@@ -18,7 +18,6 @@ Deno.serve(async (req) => {
     })
   }
   const image = await req.blob()
-  console.log(image)
 
   if (image) {
     await bot.api.sendPhoto(
