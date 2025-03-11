@@ -24,7 +24,9 @@ const handleLogin = async () => {
   }
   catch (error) {
     // TODO show error modal
-    alert(error.error_description || error.message)
+    if (error instanceof Error) {
+      alert(error.message)
+    }
   }
   finally {
     loading.value = false
