@@ -5,6 +5,7 @@ import { ref } from 'vue'
 import Button from 'primevue/button'
 import InputText from 'primevue/inputtext'
 import Password from 'primevue/password'
+import FloatLabel from 'primevue/floatlabel'
 
 import { supabase } from '../supabase.ts'
 
@@ -40,11 +41,21 @@ const handleLogin = async () => {
       class="auth-form"
       @submit.prevent="handleLogin"
     >
-      <InputText
-        v-model="email"
-        type="text"
-      />
-      <Password v-model="password" />
+      <FloatLabel variant="in">
+        <InputText
+          id="login_auth"
+          v-model="email"
+          type="text"
+        />
+        <label for="login_auth">Логин</label>
+      </FloatLabel>
+      <FloatLabel variant="in">
+        <Password
+          v-model="password"
+          input-id="password_auth"
+        />
+        <label for="password_auth">Пароль</label>
+      </FloatLabel>
       <Button
         label="Submit"
         :loading="loading"
@@ -59,5 +70,6 @@ const handleLogin = async () => {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  align-items: center;
 }
 </style>
