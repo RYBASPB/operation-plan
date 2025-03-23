@@ -71,7 +71,6 @@ function afterEdit() {
 }
 
 async function fetchPatientsByDate() {
-  console.log('fetching patients')
   const { data: allPatients, error } = await repo.GetAllByDate(date.value)
   if (error) {
     console.error(error)
@@ -120,7 +119,7 @@ const repo = new Supabase()
 
       <template #center>
         <Button @click="saveTableToImage">
-          Сделать Screenshot
+          Отправить в телеграм
         </Button>
       </template>
 
@@ -165,18 +164,18 @@ const repo = new Supabase()
         field="age"
         header="Возраст"
       />
-      <Column
-        field="case_number"
-        header="№ и/б"
-      />
-      <Column
-        field="inf"
-        header="Инф"
-      />
-      <Column
-        field="diagnosis"
-        header="Диагноз"
-      />
+<!--      <Column-->
+<!--        field="case_number"-->
+<!--        header="№ и/б"-->
+<!--      />-->
+<!--      <Column-->
+<!--        field="inf"-->
+<!--        header="Инф"-->
+<!--      />-->
+<!--      <Column-->
+<!--        field="diagnosis"-->
+<!--        header="Диагноз"-->
+<!--      />-->
       <Column
         field="operation"
         header="Операция"
@@ -187,11 +186,12 @@ const repo = new Supabase()
       />
       <Column
         field="team"
-        header="Бригада"
+        header="Оператор"
       />
       <Column
         :hidden="forScreenshot"
         style="width: 15rem;"
+        header="Действия"
       >
         <template #body="rowData">
           <div class="table__button-container">

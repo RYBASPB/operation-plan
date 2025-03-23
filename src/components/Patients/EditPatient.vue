@@ -11,8 +11,6 @@ import FloatLabel from 'primevue/floatlabel'
 import options from '../../data/options.ts'
 
 const {
-  infections,
-  diagnoses,
   surgeries,
   anesthesiaTypes,
   doctors,
@@ -98,36 +96,36 @@ const editPatient = async () => {
             fluid
           />
         </FloatLabel>
-        <FloatLabel variant="in">
-          <InputText
-            id="case_number"
-            v-model="patientData.case_number"
-            type="number"
-            inputmode="numeric"
-            fluid
-          />
-          <label for="case_number">Номер истории</label>
-        </FloatLabel>
+<!--        <FloatLabel variant="in">-->
+<!--          <InputText-->
+<!--            id="case_number"-->
+<!--            v-model="patientData.case_number"-->
+<!--            type="number"-->
+<!--            inputmode="numeric"-->
+<!--            fluid-->
+<!--          />-->
+<!--          <label for="case_number">Номер истории</label>-->
+<!--        </FloatLabel>-->
       </div>
       <div class="modal__block">
-        <FloatLabel variant="in">
-          <Select
-            v-model="patientData.inf"
-            input-id="inf"
-            editable
-            :options="infections"
-          />
-          <label for="inf">Инфекции</label>
-        </FloatLabel>
-        <FloatLabel variant="in">
-          <Select
-            v-model="patientData.diagnosis"
-            input-id="diagnosis"
-            editable
-            :options="diagnoses"
-          />
-          <label for="diagnosis">Диагноз</label>
-        </FloatLabel>
+<!--        <FloatLabel variant="in">-->
+<!--          <Select-->
+<!--            v-model="patientData.inf"-->
+<!--            input-id="inf"-->
+<!--            editable-->
+<!--            :options="infections"-->
+<!--          />-->
+<!--          <label for="inf">Инфекции</label>-->
+<!--        </FloatLabel>-->
+<!--        <FloatLabel variant="in">-->
+<!--          <Select-->
+<!--            v-model="patientData.diagnosis"-->
+<!--            input-id="diagnosis"-->
+<!--            editable-->
+<!--            :options="diagnoses"-->
+<!--          />-->
+<!--          <label for="diagnosis">Диагноз</label>-->
+<!--        </FloatLabel>-->
         <FloatLabel variant="in">
           <Select
             v-model="patientData.operation"
@@ -136,7 +134,7 @@ const editPatient = async () => {
             :options="surgeries"
             class="w-full"
           />
-          <label for="operation">Операции</label>
+          <label for="operation">Операция</label>
         </FloatLabel>
         <FloatLabel variant="in">
           <Select
@@ -154,7 +152,7 @@ const editPatient = async () => {
             editable
             :options="doctors"
           />
-          <label for="team">Бригада</label>
+          <label for="team">Оператор</label>
         </FloatLabel>
       </div>
     </div>
